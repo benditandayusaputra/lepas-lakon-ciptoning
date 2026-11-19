@@ -1,0 +1,4 @@
+Taruh gambar wayang (PNG transparan) di folder ini. Nama file yang dipakai game:
+arjuna.png, gunungan.png, semar.png, buta.png, celeng.png, kirata.png, prajurit.png
+Opsional: barang_<id>.png untuk ikon barang (id: mahkota, tameng, pelita, selendang, terompah, emas).
+Lihat README.md bagian "Gambar wayang".

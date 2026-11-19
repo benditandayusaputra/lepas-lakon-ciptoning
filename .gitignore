@@ -1,0 +1,21 @@
+# Godot
+.godot/
+*.translation
+export_credentials.cfg
+
+# Hasil ekspor dan berkas sementara
+build/
+_to_delete/
+
+# Foto sumber mentah (sudah diolah ke assets/wayang)
+bahan/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Berkas sementara
+*.tmp
