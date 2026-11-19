@@ -229,17 +229,23 @@ func _mulai_baru() -> void:
 ## Pilih tingkat kesulitan sebelum bermain.
 func _show_kesulitan(lanjut: Callable) -> void:
 	var box := _new_panel()
-	var judul := Art.ink_label("Tingkat kesulitan", 17)
+	# Lebih rapat supaya keterangan Pati Geni dan tombol Kembali tidak turun ke tanah.
+	box.add_theme_constant_override("separation", -1)
+	box.position.y -= 4.0
+	var judul := Art.ink_label("Tingkat kesulitan", 16)
 	judul.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(judul)
 	var pilihan := []
 	for i in 4:
 		var teks := "%s  (%d nyawa)" % [Game.KESULITAN[i], Game.NYAWA[i]]
-		if i == Game.PATI_GENI:
-			teks = "Pati Geni  (1 nyawa, mati = ulang dari babak 1)"
-		var b := _button(box, teks, _pilih_kesulitan.bind(i, lanjut), 17)
+		var b := _button(box, teks, _pilih_kesulitan.bind(i, lanjut), 15)
 		pilihan.append(b)
-	_button(box, "Kembali", _show_main, 17)
+		if i == Game.PATI_GENI:
+			# Keterangan dipisah ke baris kecil supaya tidak terpotong tepi layar.
+			var ket := Art.ink_label("Mati sekali, lakon diulang dari Babak 1", 12)
+			ket.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			box.add_child(ket)
+	_button(box, "Kembali", _show_main, 15)
 	(pilihan[Game.kesulitan] as Button).grab_focus.call_deferred()
 
 
