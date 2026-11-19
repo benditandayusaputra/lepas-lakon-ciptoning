@@ -95,7 +95,9 @@ func _ready() -> void:
 	var back := Button.new()
 	back.text = "Kembali ke menu"
 	back.add_theme_font_size_override("font_size", 18)
-	Art.place(back, Control.PRESET_CENTER_BOTTOM, Rect2(-100, -34, 200, 28))
+	# Diberi jarak dari tepi bawah supaya tidak terpotong di embed browser.
+	Art.place(back, Control.PRESET_CENTER_BOTTOM, Rect2(-110, -58, 220, 30))
+	back.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	back.pressed.connect(_on_back)
 	add_child(back)
 	back.grab_focus.call_deferred()
